@@ -19,3 +19,5 @@ User can select one of their individual pictures and:
 User can view other users profiles and:
   - select one of their pictures
   - add comments to it
+
+(link)[https://imgur.com/oZnH4w6]
