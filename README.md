@@ -20,4 +20,4 @@ User can view other users profiles and:
   - select one of their pictures
   - add comments to it
 
-(link)[https://imgur.com/oZnH4w6]
+![alt text](https://imgur.com/oZnH4w6)
