@@ -2,20 +2,18 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const app = express()
-const session =require('express-session');
 
 
 require('./db/db')
 
-const usersController = require('./controllers/users');
+const usersController = require('./controllers/usersController');
 
-const profilesController = require('./controllers/profilesControllers')
 
 const photosController = require('./controllers/photosController')
 
 
 app.use('/photos', photosController);
-app.use('/profile', profilesController)
+app.use('/users', usersController)
 
 
 app.use(session({
@@ -43,4 +41,6 @@ app.get('/', (req, res) => {
 
 app.listen(3000, () => {
     console.log('listening on 3k')
-});
+
+})
+
