@@ -5,13 +5,20 @@
 	<title></title>
 </head>
 <body>
-	<h1>Photos Index</h1>
+	<h1>Photos Show</h1>
 	<a href="photos/<%=photo._id%>">Edit photo</a>
-
+	<main>
+	<section>
+		<h1><%=photo.title%></h1><br/>
+		<img src="<%=photo.url%>"><br/>
+		<h3><%=photo.description%><br/>
+		<h3><%=photo.comments%><br/>
+	</section>
 	<section>
 		<form method="POST" action="/photos/<%=photo._id%>?_method=DELETE">
 			<input type="submit" name="" value="Delete Photo">
 		</form>
 	</section>
+	</main>
 </body>
 </html>
