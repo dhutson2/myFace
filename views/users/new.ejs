@@ -1,1 +1,35 @@
-hi im a new page
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Create a new user</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/users">Back to users</a>
+          </li>
+          <li>
+            <a href="/photos">Photo Gallery</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form action="/users" method="POST">
+        Name: <input type="text" name="name" /></br>
+        </br>
+        Password: <input type="password" name="password"/></br>
+        </br>
+        Profile picture link: <input type="text" name="image"/></br>
+        </br>
+        Describe yourself! <input type="text" name="about"/></br>
+        </br>
+        <input type="submit" value="create user"/>
+      </form>
+    </main>
+  </body>
+</html>

@@ -5,8 +5,15 @@ const User    = require('../models/users');
 
 // profile index page that will show
 // individual users profile
-router.get('/', (req, res) => {
-    res.render('users/index.ejs')
+router.get('/', async(req, res) => {
+    try{
+    const users = await User.find({})
+    res.render('users/index.ejs', {
+        users: users
+    })
+    } catch(err){
+        res.send(err)
+    }
 })
 
 // route to get new page to create profile
@@ -15,8 +22,14 @@ router.get('/new', (req, res) =>{
 })
 
 // route to create profile and add it to user
-router.post('/', (req, res) => {
-    //put stuff here
+router.post('/', async (req, res) => {
+    try{
+    const user = await User.create(req.body)
+    console.log(user)
+    res.redirect('/users')
+    } catch(err){
+        res.send(err)
+    }
 })
 
 // route to show selected profile

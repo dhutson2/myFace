@@ -1,1 +1,37 @@
-hi im an index page
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>faces</title>
+  </head>
+  <body>
+    <header>
+      <h1>User list</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/users/new">Add a user</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>User list</h2>
+      <ul>
+          <% for(let i = 0; i < users.length; i++){ %>
+              <li>
+                  <a href="/users/<%=users[i]._id%>"><%=users[i].name%></a>
+                  <a href="/users/<%=users[i]._id%>"><%=users[i].about%></a>
+                  <form method="POST" action="/users/<%=users[i]._id%>?_method=DELETE">
+                <input type="submit" name="_method" value="DELETE"/>
+            </form>
+              </li>
+          <% } %>
+      </ul>
+
+    </main>
+  </body>
+</html>
