@@ -33,8 +33,15 @@ router.post('/', async (req, res) => {
 })
 
 // route to show selected profile
-router.get('/:id', (req, res) => {
-    res.render('users/show.ejs')
+router.get('/:id', async(req, res) => {
+    try{
+        const user = await User.findById(req.params.id)
+        res.render('users/show.ejs', {
+            users: user
+        })
+    } catch(err){
+        res.send(err)
+    }
 })
 
 //route to edit selected profile, assuming user owns profile
