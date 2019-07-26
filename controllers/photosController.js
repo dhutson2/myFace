@@ -16,8 +16,11 @@ router.get('/', async (req, res) => {
 });
 
 // New route
-router.get('/new', (req, res) => {
-	res.render('photos/new.ejs');
+router.get('/new', async (req, res) => {
+	const users = await User.find();
+	res.render('photos/new.ejs', {
+		users: users
+	});
 });
 
 // Edit route
@@ -68,8 +71,6 @@ router.put('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
 	try{
 		const newPhoto = await Photo.create(req.body);
-		console.log(newPhoto)
-		console.log(req.body)
 		res.redirect('/photos');		
 	} catch(err){
 		res.send(err);
