@@ -16,12 +16,9 @@ app.use('/photos', photosController);
 app.use('/users', usersController)
 
 
-app.use(session({
-	secret: "keepitsecretstring",
-	resave: false,
-	saveUninitialized: false
-}))
 
+
+app.use(express.static(__dirname + '/public'));
 
 
 
