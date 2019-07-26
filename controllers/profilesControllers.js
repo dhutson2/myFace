@@ -5,12 +5,12 @@ const Profile = require('../models/profilesModel')
 // profile index page that will show
 // individual users profile
 router.get('/', (req, res) => {
-    res.send('hi from profile router')
+    res.render('profile/index.ejs')
 })
 
 // route to get new page to create profile
 router.get('/new', (req, res) =>{
-    res.send('hi from new profile page')
+    res.render('profile/new.ejs')
 })
 
 // route to create profile and add it to user
@@ -20,12 +20,12 @@ router.post('/', (req, res) => {
 
 // route to show selected profile
 router.get('/:id', (req, res) => {
-    res.send('hi from profile show page')
+    res.render('profile/show.ejs')
 })
 
 //route to edit selected profile, assuming user owns profile
 router.get('/:id/edit', (req, res) => {
-    res.send('hi from edit page')
+    res.render('profile/edit.ejs')
 })
 
 //route to update edited profile
