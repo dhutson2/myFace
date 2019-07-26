@@ -49,8 +49,13 @@ router.put('/:id', (req, res) => {
 
 // danger zone! route to delete profile
 // should we be like facebook and make this option impossible to find??
-router.delete('/:id', (req, res) => {
-    //put stuff here
+router.delete('/:id', async (req, res) => {
+    try{
+        const user = await User.findByIdAndRemove(req.params.id)
+        res.redirect('/users')
+    } catch(err){
+
+    }
 })
 
 
