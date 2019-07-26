@@ -11,3 +11,7 @@ const photoSchema = new Schema({
 		ref: 'User'
 	}
 });
+
+const Photo = mongoose.model('Photo', photoSchema);
+
+module.exports = Photo;
