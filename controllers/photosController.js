@@ -13,21 +13,19 @@ router.get('/', async (req, res) => {
 });
 
 // New route
-// router.get('/new', (req, res) => {
-// 	res.render('photos/new.ejs');
-// });
+router.get('/new', (req, res) => {
+	res.render('photos/new.ejs');
+});
 
 // Show route
-// router.get('/:id', async (req, res) => {
-// 	try{
-// 		const photo = await Photo.findById();
-// 		res.render('photos/show.ejs', {
-// 			photo: photo
-// 		});
-// 	}catch(err){
-// 		res.send(err);
-// 	}
-// });
+router.get('/:id', async (req, res) => {
+	try{
+		const photo = await Photo.findById();
+		res.render('photos/show.ejs');
+	}catch(err){
+		res.send(err);
+	}
+});
 
 // Post route
 // router.post('/', async (req, res) => {
