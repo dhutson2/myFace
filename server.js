@@ -1,7 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
-const session = require('express-session')
 const app = express()
 const session =require('express-session');
 
@@ -44,4 +43,4 @@ app.get('/', (req, res) => {
 
 app.listen(3000, () => {
     console.log('listening on 3k')
-}
+});
