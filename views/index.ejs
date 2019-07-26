@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to MyFace</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/photos">Photos</a>
+                    </li>
+                    <li>
+                        <a href="/users">Users</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+             <h2>Login</h2>
+      <form action="/login" method="POST">
+        Enter username: <input type="text" name="username">
+        Enter password: <input type="password" name='password'>
+        <button type='submit'>Login</button>
+      </form>
+            <h2>Register</h2>
+      <form action="/register" method="POST">
+        Enter username: <input type="text" name="username">
+        Enter password: <input type="password" name='password'>
+        <button type='submit'>Register</button>
+      </form>
+        </main>
+    </body>
+</html>
