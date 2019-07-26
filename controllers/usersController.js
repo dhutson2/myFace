@@ -1,16 +1,17 @@
-const express = require('express')
-const router = express.Router()
-const Profile = require('../models/profilesModel')
+const express = require('express');
+const router  = express.Router();
+const User    = require('../models/users');
+
 
 // profile index page that will show
 // individual users profile
 router.get('/', (req, res) => {
-    res.render('profile/index.ejs')
+    res.render('users/index.ejs')
 })
 
 // route to get new page to create profile
 router.get('/new', (req, res) =>{
-    res.render('profile/new.ejs')
+    res.render('users/new.ejs')
 })
 
 // route to create profile and add it to user
@@ -20,12 +21,12 @@ router.post('/', (req, res) => {
 
 // route to show selected profile
 router.get('/:id', (req, res) => {
-    res.render('profile/show.ejs')
+    res.render('users/show.ejs')
 })
 
 //route to edit selected profile, assuming user owns profile
 router.get('/:id/edit', (req, res) => {
-    res.render('profile/edit.ejs')
+    res.render('users/edit.ejs')
 })
 
 //route to update edited profile
@@ -39,4 +40,5 @@ router.delete('/:id', (req, res) => {
     //put stuff here
 })
 
-module.exports = router;
+
+module.exports= router;
