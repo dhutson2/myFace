@@ -9,6 +9,12 @@
 	<h1>Add a new photo</h1>
 
 	<form action="/photos" method="POST">
+		<select>
+			<% users.forEach(function(user) { %>
+				<option value="<%=user._id%>"><%=user.name%></option>
+			<%})%>
+
+		</select>
 
 			Title: <input type="text" name="title"><br/>
 			Image:	<input type="text" name="url"><br/>
