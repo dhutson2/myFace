@@ -9,7 +9,7 @@
 	<a href="/photos/new">Add new photo</a>
 	<main>
 		<ul>
-			<% photos.forEach(function(photos, id) { %>
+			<% photos.forEach(function(photos) { %>
 				<li>
 					<a href="/photos/<%=photos._id%>"><%=photos.title%></a>
 						<img src="<%=photos.url%>"><br/>

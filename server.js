@@ -13,10 +13,10 @@ const profilesController = require('./controllers/profilesControllers')
 
 const photosController = require('./controllers/photosController')
 
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/photos', photosController);
 app.use('/profile', profilesController)
-
 
 app.use(session({
 	secret: "keepitsecretstring",

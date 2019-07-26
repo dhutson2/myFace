@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Photo = require('../models/photosModel');
+// const User = require('../models/users')
 
 // Photos index route
 router.get('/', async (req, res) => {
@@ -31,10 +32,12 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
-// Post route
+// Create route
 router.post('/', async (req, res) => {
 	try{
-		const photo = await Photo.create(req.body);
+		const newPhoto = await Photo.create(req.body);
+		console.log(newPhoto)
+		console.log(req.body)
 		res.redirect('/photos');		
 	} catch(err){
 		res.send(err);

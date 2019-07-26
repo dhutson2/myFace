@@ -6,5 +6,12 @@
 </head>
 <body>
 	<h1>Photos Index</h1>
+	<a href="photos/<%=photo._id%>">Edit photo</a>
+
+	<section>
+		<form method="POST" action="/photos/<%=photo._id%>?_method=DELETE">
+			<input type="submit" name="" value="Delete Photo">
+		</form>
+	</section>
 </body>
 </html>
