@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/users.css'>
+        <%- include ../partials/_navbar.ejs %>
+
     <title><%=users.name%>'s profile</title>
 </head>
-<body>
-    <%- include ../partials/_navbar.ejs %>
-    <h1>About <%=users.name%></h1>
+<body class = 'container'>
 
+    <div id='name'>
     name: <%=users.name%></br>
-    <img src ='<%=users.image%>'></br>
-    About <%=users.name%>: <%=users.about%>%> 
+    </div>
+    <div class='image'>
+    <img src = <%=users.image%> height='100%' width='100%'>
+    </div>
+    <div class = 'about'>
+    <%=users.about%>%> 
+    </div>
 </body>
-<section>
+        <section class='nav'>
           <a href="/users/<%=users._id%>/edit">Edit</a>
           <a href='/users'>Back to users</a>
       </section>
