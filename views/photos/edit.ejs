@@ -7,12 +7,18 @@
 </head>
 <body>
 	<h1>Edit <%=photo.title%></h1>
-	<form action="/photos/<%=photo._id%>?_method=PUT" method="POST">
-		<input type="text" name="title" value="<%=photo.title%>"/><br/>
-		<input type="text" name="url" value="<%=photo.url%>"/><br/>
-		<input type="text" name="description" value="<%=photo.description%>"><br/>
-		<input type="submit" name="" value="Update Photo">
-
-	</form>
+	<main>
+		<form action="/photos/<%=photo._id%>?_method=PUT" method="POST">
+			<select name="user">
+				<% user.forEach(function(user) { %>
+					<option value="<%=user._id%>"><%=user.name%></option>
+				<%})%>
+			</select><br/>
+			<input type="text" name="title" value="<%=photo.title%>"/><br/>
+			<input type="text" name="url" value="<%=photo.url%>"/><br/>
+			<input type="text" name="description" value="<%=photo.description%>"><br/>
+			<input type="submit" name="" value="Update Photo">
+		</form>
+	</main>
 </body>
 </html>
