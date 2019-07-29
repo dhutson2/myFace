@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
-const Photo = require('../models/photosModel');
-const User = require('../models/users')
+const router  = express.Router();
+const Photo   = require('../models/photosModel');
+const User    = require('../models/users')
 
 // Photos index route
 router.get('/', async (req, res) => {
@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
 // New route
 router.get('/new', async (req, res) => {
 	const users = await User.find();
+	console.log(users, '<-users');
 	res.render('photos/new.ejs', {
 		users: users
 	});
