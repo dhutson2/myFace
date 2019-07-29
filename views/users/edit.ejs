@@ -1,1 +1,19 @@
-hi im an edit profile page
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/app.css">
+    </head>
+    <body>
+        <h1>Update user info</h1>
+        <form action='/users/<%=user._id%>?_method=PUT%>' method='post'>
+            <!--  NOTE: the form is pre-populated with values for the server-->
+            Name: <input type="text" name="name" value="<%=user.name%>"/><br/>
+            Image: <input type="text" name="image" value="<%=user.image%>"> <img src='<%=user.image%>'>
+            <br/>
+            About: <input type="text" name="about" value="<%=user.about%>"/><br/>
+            <input type="submit" name="_method" value="submit changes"/>
+        </form>
+    </body>
+</html>

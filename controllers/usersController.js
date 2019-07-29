@@ -45,13 +45,27 @@ router.get('/:id', async(req, res) => {
 })
 
 //route to edit selected profile, assuming user owns profile
-router.get('/:id/edit', (req, res) => {
-    res.render('users/edit.ejs')
+router.get('/:id/edit', async (req, res) => {
+    const foundUser = await User.findById(req.params.id)
+    // console.log(foundUser)
+    try{
+    res.render('users/edit.ejs',{
+        user: foundUser
+    })
+    } catch(err){
+        res.send(err)
+    }
 })
 
 //route to update edited profile
-router.put('/:id', (req, res) => {
-    // put stuff here
+router.put('/:id', async (req, res) => {
+    const foundUser = await User.findByIdAndUpdate(req.params.id, req.body)
+    try{
+        console.log(foundUser, '<-- put route')
+        res.redirect('/users/' + req.params.id)
+    } catch(err){
+        res.send(err)
+    }
 })
 
 // danger zone! route to delete profile
