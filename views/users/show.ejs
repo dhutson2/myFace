@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="/users.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-	<body>
-    	<h1>About <%=user.name%></h1>
+
+<body>
+    <%- include ../partials/_navbar.ejs %>
+    <h1>About <%=users.name%></h1>
 
     	name: <%=user.name%></br>
     	<img src ='<%=user.image%>'></br>

@@ -26,10 +26,13 @@ router.get('/new', async (req, res) => {
 
 // Edit route
 router.get('/:id/edit', async (req, res) => {
+	console.log(req.params);
 	try {
 		const photo = await Photo.findById(req.params.id);
+		const user = await User.find();
 		res.render('photos/edit.ejs', {
-			photo: photo
+			photo: photo,
+			user: user
 		})
 	} catch(err){
 		res.send(err)
