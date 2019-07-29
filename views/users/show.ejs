@@ -25,14 +25,14 @@
         <section class='nav'>
           <a href="/users/<%=users._id%>/edit">Edit</a>
 
-    <title><%=user.name%>'s profile</title>
+    <title><%=users.name%>'s profile</title>
     <link rel="stylesheet" href="/users.css">
     
     <h1>About <%=users.name%></h1>
 
-    	name: <%=user.name%></br>
-    	<img src ='<%=user.image%>'></br>
-    	About <%=user.name%>: <%=user.about%>%>
+    	name: <%=users.name%></br>
+    	<img src ='<%=users.image%>'></br>
+    	About <%=users.name%>: <%=users.about%>%>
 
 	<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     	<div class="carousel-inner">
@@ -52,7 +52,7 @@
   		</a>
 	</div> 
 	<section>
-          <a href="/users/<%=user._id%>/edit">Edit</a>
+          <a href="/users/<%=users._id%>/edit">Edit</a>
           <a href='/users'>Back to users</a>
     </section>
 

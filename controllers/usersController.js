@@ -39,7 +39,7 @@ router.get('/:id', async(req, res) => {
         const user = await User.findById(req.params.id)
         const usersphotos = await Photo.find({user: req.params.id});
         res.render('users/show.ejs', {
-            user: await user,
+            users: await user,
             photos: await usersphotos
         })
 
