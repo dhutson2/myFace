@@ -5,34 +5,31 @@
         <title></title>
      <link rel="stylesheet" type="text/css" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Shojumaru&effect=3d" rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     </head>
     <body>
+        <navbar>
+            <ul id="navigation">
+                <li><a href="/photos">Photos</a></li>
+                <li><a href="/users">Users</a></li>
+            </ul>
+        </navbar>
         <header>
             <h1 class="font-effect-3d">Welcome to MyFace</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="/photos">Photos</a>
-                    </li>
-                    <li>
-                        <a href="/users">Users</a>
-                    </li>
-                </ul>
-            </nav>
         </header>
         <main>
              <h2>Login</h2>
       <form action="/login" method="POST">
-        Enter username: <input type="text" name="username">
-        Enter password: <input type="password" name='password'>
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
         <button type='submit'>Login</button>
       </form>
             <h2>Register</h2>
       <form action="/register" method="POST">
-        Enter username: <input type="text" name="username">
-        Enter password: <input type="password" name='password'>
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
         <button type='submit'>Register</button>
-      </form>
         </main>
     </body>
 </html>
