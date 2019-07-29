@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const User    = require('../models/users');
+const Photo   = require('../models/photosModel');
 
 
 // profile index page that will show
@@ -36,9 +37,12 @@ router.post('/', async (req, res) => {
 router.get('/:id', async(req, res) => {
     try{
         const user = await User.findById(req.params.id)
+        const usersphotos = await Photo.find({user: req.params.id});
         res.render('users/show.ejs', {
-            users: user
+            user: await user,
+            photos: await usersphotos
         })
+
     } catch(err){
         res.send(err)
     }
