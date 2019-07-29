@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/users.css'>
+        <%- include ../partials/_navbar.ejs %>
+
+    <title><%=users.name%>'s profile</title>
+</head>
+<body class = 'container'>
+
+    <div id='name'>
+    <%=users.name%></br>
+    </div>
+    <div class='image'>
+    <img src = <%=users.image%> height='100%' width='100%'>
+    </div>
+    <div class = 'about'>
+    <%=users.about%>%> 
+    </div>
+
+        <section class='nav'>
+          <a href="/users/<%=users._id%>/edit">Edit</a>
+
     <title><%=user.name%>'s profile</title>
     <link rel="stylesheet" href="/users.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<body>
-    <%- include ../partials/_navbar.ejs %>
+    
     <h1>About <%=users.name%></h1>
 
     	name: <%=user.name%></br>
