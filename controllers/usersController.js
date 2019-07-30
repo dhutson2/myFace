@@ -25,7 +25,7 @@ router.get('/new', (req, res) =>{
 // route to create profile and add it to user
 router.post('/', async (req, res) => {
     try{
-    const user = await User.create(req.body)
+    const user = await User.create(req.body);
     console.log(user)
     res.redirect('/users')
     } catch(err){
