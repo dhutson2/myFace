@@ -7,11 +7,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href='/users.css'>
-        <%- include ../partials/_navbar.ejs %>
 
     <title><%=users.name%>'s profile</title>
 </head>
 <body>
+		<div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            myface
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="/">Home page</a></li>
+            <li><a class="dropdown-item" href="/users">Users page</a></li>
+            <li><a class="dropdown-item" href="/photos">Photos page</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </div>
 	<div class="container">
     	<div id="name">
     		<h1 class='name'><%=users.name%></h1></br>
@@ -31,7 +41,7 @@
    				<div class="carousel-item" style="background-image: url(<%=photo.url%>);">
       				<img src="<%=photo.url%>" class="d-block w-100 post" alt="...">
       				<div class="carousel-caption d-md-block">
-      					<h5><a class="photo-show" href="/photos/<%=photo._id%>"><%=photo.title%></a></h5>
+      					<h5 class="photo-show"><a class="photo-show" href="/photos/<%=photo._id%>"><%=photo.title%></a></h5>
       				</div>
     			</div>
     		<%})%>
