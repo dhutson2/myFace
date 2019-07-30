@@ -2,35 +2,57 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Register for myface</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/newUser.css'>
   </head>
-  <body>
-    <%- include ../partials/_navbar.ejs %>
-    <header>
-      <h1>Create a new user</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="/users">Back to users</a>
-          </li>
-          <li>
-            <a href="/photos">Photo Gallery</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <form action="/users" method="POST">
-        Name: <input type="text" name="name" /></br>
-        </br>
-        Password: <input type="password" name="password"/></br>
-        </br>
-        Profile picture link: <input type="text" name="image"/></br>
-        </br>
-        Describe yourself! <input type="text" name="about"/></br>
-        </br>
-        <input type="submit" value="create user"/>
-      </form>
+  <body style='background-color: #E6E6DC'>
+    <main class = 'container-fluid px-lg-5'>
+      <div class = 'row w-100' id = 'toprow'>
+        <div class = 'col'>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            myface
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="/">Home page</a></li>
+            <li><a class="dropdown-item" href="/users">Users page</a></li>
+            <li><a class="dropdown-item" href="/photos">Photos page</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </div>
+        </div>
+        <div class = 'col-6'>
+        <h1>Create a new user</h1>
+        </div>
+        <div class = 'col'>
+        myface logo
+        </div>
+      </div>
+      <div class = 'row w-100' id='middlerow'>
+        <div class = 'col'>
+        column here
+        </div>
+        <div class = 'col col-6'>
+        <form action="/users" method="POST">
+          Name: <input type="text" name="name" /></br>
+          </br>
+          Password: <input type="password" name="password"/></br>
+          </br>
+          Profile picture link: <input type="text" name="image"/></br>
+          </br>
+          Describe yourself! <input type="text" name="about"/></br>
+          </br>
+          <input type="submit" value="create user"/>
+        </form>
+        </div>
+        <div class = 'col auto'>
+        column here
+        </div>
+      </div>
     </main>
   </body>
 </html>
