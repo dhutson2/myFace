@@ -12,18 +12,29 @@ const usersController = require('./controllers/usersController');
 
 const photosController = require('./controllers/photosController')
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(methodOverride('_method'));
-
-app.use('/photos', photosController);
-app.use('/users', usersController)
-
 
 app.use(session({
 	secret: "keepitsecretstring",
 	resave: false,
 	saveUninitialized: false
 }))
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
+
+
+app.use((req, res, next) => {
+	if(!req.session.logged)
+	{
+		req.session.userId = null;
+	}
+	res.locals.session = req.session
+	next();
+})
+
+app.use('/photos', photosController);
+app.use('/users', usersController)
+
 
 
 
