@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href='/users.css'>
@@ -10,38 +11,32 @@
 
     <title><%=users.name%>'s profile</title>
 </head>
-<body class = 'container'>
-
-    <div id='name'>
-    <%=users.name%></br>
-    </div>
+<body>
+	<div class="container">
+    	<div id="name">
+    		<h1 class='name'><%=users.name%></h1></br>
+    		<div class="add"><h6><a href="/photos/new">Post New Photo</a></h6></div>
+    		<div class="edit"><h6><a href="/users/<%=users._id%>/edit">Edit Profile</a></h6></div>
+    	</div>
     <div class='image'>
-    <img src = <%=users.image%> height='100%' width='100%'>
+    	<img src = <%=users.image%> height='100%' width='100%'>
     </div>
-    <div class = 'about'>
-    <%=users.about%>%> 
-    </div>
-
-        <section class='nav'>
-          <a href="/users/<%=users._id%>/edit">Edit</a>
-
-    <title><%=users.name%>'s profile</title>
-    <link rel="stylesheet" href="/users.css">
-    
-    <h1>About <%=users.name%></h1>
-
-    	name: <%=users.name%></br>
-    	<img src ='<%=users.image%>'></br>
-    	About <%=users.name%>: <%=users.about%>%>
+    	<div class = 'about'>
+    		<h4><%=users.about%></h4>
+    	</div>
 
 	<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     	<div class="carousel-inner">
     		<% photos.forEach(function(photo) {%>
    				<div class="carousel-item" style="background-image: url(<%=photo.url%>);">
       				<img src="<%=photo.url%>" class="d-block w-100 post" alt="...">
+      				<div class="carousel-caption d-md-block">
+      					<h5><a class="photo-show" href="/photos/<%=photo._id%>"><%=photo.title%></a></h5>
+      				</div>
     			</div>
     		<%})%>
   		</div>
+  		
   		<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
     	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
     	<span class="sr-only">Previous</span>
@@ -51,11 +46,7 @@
     	<span class="sr-only">Next</span>
   		</a>
 	</div> 
-	<section>
-          <a href="/users/<%=users._id%>/edit">Edit</a>
-          <a href='/users'>Back to users</a>
-    </section>
-
+	</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script type="text/javascript">
     	$(document).ready(function() {

@@ -7,7 +7,6 @@ h1 {
 	font-size: 58px;
 	text-align: center;
 	font-family: 'Alegreya', serif;
-
 }
 
 h2 {
@@ -81,3 +80,33 @@ button {
 }
 
 .dropdown:hover .dropdown-content {display: block;}
+
+#myCarousel {
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 10%;
+	border: 5px solid white;
+	background-color: white;
+}
+
+.carousel-inner {
+	width: 95%;
+	margin: 0 auto;
+}
+
+#myCarousel:hover {
+	background-color: #9daef5;
+}
+
+.photo-show {
+	display: block;
+	color: #87CEFA;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+
+
+
+
+
+

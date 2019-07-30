@@ -6,9 +6,11 @@ const User    = require('../models/users')
 // Photos index route
 router.get('/', async (req, res) => {
 	try {
-		const photos = await Photo.find();
+		const photos = await Photo.find().populate('user');
+		const user = await User.findById(req.params.id);
 		res.render('photos/index.ejs', {
-			photos: photos
+			photos: photos,
+			user: user
 		})		
 	} catch(err){
 		res.send(err)
