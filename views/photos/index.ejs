@@ -23,18 +23,38 @@
             <li><a class="dropdown-item" href="/logout">Logout</a></li>
           </ul>
         </div>
-	<h1>Photos Index</h1>
-	<a href="/photos/new">Add new photo</a>
+	<h1>myface gallery</h1>
 	<main>
-		<ul>
-			<% photos.forEach(function(photos) { %>
-				<li>
-					<a href="/photos/<%=photos._id%>"><%=photos.title%></a>
-						<img src="<%=photos.url%>"><br/>
-						<%=photos.description%>
-				</li>
-			<%})%>
-		</ul>
+
+		<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    		<div class="carousel-inner">
+    			<% photos.forEach(function(photo, user) {%>
+   					<div class="carousel-item" style="background-image: url(<%=photo.url%>);">
+      					<img src="<%=photo.url%>" class="d-block w-100 post" alt="...">
+      					<div class="carousel-caption d-md-block">
+      						<h5><a class="photo-show" href="/users/<%=photo.user._id%>">Posted by: <%=photo.user.name%></a></h5>
+      					</div>
+    				</div>
+    			<%})%>
+  			</div>
+  		
+  			<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+    		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    		<span class="sr-only">Previous</span>
+  			</a>
+  			<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+    		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+    		<span class="sr-only">Next</span>
+  			</a>
+		</div> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$('#myCarousel').find('.carousel-item').first().addClass('active');
+    	});
+    </script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	</main>
 </body>
 </html>
