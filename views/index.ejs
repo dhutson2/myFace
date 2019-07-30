@@ -27,20 +27,42 @@
         <header>
             <h1 class="font-effect-3d">Welcome to MyFace</h1>
         </header>
-        <input type='checkbox' id='form-switch'>
+        <div class='space-div'>
+        
+        </div>
+    <input type='checkbox' id='form-switch'>
     <form id='login-form' action="users/login" method='post'>
-    <input type="text" placeholder="Username" required>
-    <input type="password" placeholder="Password" required>
-    <button type='submit'>Login</button>
-    <label for='form-switch'><span>Register</span></label>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-group form-check">
+        <label class="form-check-label" for="form-switch">Register</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
     </form>
-    <form id='register-form' action="/register" method='post'>
-    <input type="text" placeholder="Username" required>
-    <input type="email" placeholder="Email" required>
-    <input type="password" placeholder="Password" required>
-    <button type='submit'>Register</button>
-    <label for='form-switch'>Sign In Now</label>
-        </form>
+    
+     <form id='register-form' action="/register" method='post'>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-group form-check">
+        <label class="form-check-label" for="form-switch">Register</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
             </main>
+            
     </body>
 </html>

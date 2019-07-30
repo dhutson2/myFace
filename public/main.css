@@ -57,9 +57,9 @@ button {
 	background-image: -webkit-linear-gradient(top, #eb94d0, #2079b0);  background-image: -moz-linear-gradient(top, #eb94d0, #2079b0);  background-image: -ms-linear-gradient(top, #eb94d0, #2079b0);  background-image: -o-linear-gradient(top, #eb94d0, #2079b0);  background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
 	-webkit-border-radius: 28;  -moz-border-radius: 28;  border-radius: 28px;
 	text-shadow: 3px 2px 1px #9daef5;  -webkit-box-shadow: 6px 5px 12px #666666;  -moz-box-shadow: 6px 5px 12px #666666;  box-shadow: 6px 5px 12px #666666;
-	font-family: 'Source Sans Pro', sans-serif;  color: #fafafa;  font-size: 12px;  padding: 10px;  text-decoration: none;}
-
+	font-family: 'Source Sans Pro', sans-serif;  color: #fafafa;  font-size: 12px;  padding: 10px;  text-decoration: none
 }
+
 
 
 .dropdown {
@@ -98,7 +98,6 @@ input {
   border:1px solid #CCC
 }
 
-}
 label {
   cursor:pointer
 }
@@ -113,4 +112,21 @@ label {
 }
 #form-switch:checked~#login-form {
   display:none
+}
+
+#login-form{
+	border: 5px solid slategray;
+	border-radius: 10px;
+	padding: 10px
+	
+}
+
+#register-form{
+	border: 5px solid slategray;
+	border-radius: 10px;
+	padding: 10px
+}
+
+.space-div{
+	margin: 135px
 }
