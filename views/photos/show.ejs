@@ -13,12 +13,13 @@
 </head>
 <body>
 	<%- include ../partials/_navbar.ejs %>
-	<h1>Photos Show</h1>
 	<a href="<%=photo._id%>/edit">Edit photo</a>
 	<main>
 	<section>
 		<h1><%=photo.title%></h1><br/>
-		<img src="<%=photo.url%>"><br/>
+		<div class="photo">
+			<img src="<%=photo.url%>"><br/>
+		</div>
 		<h3><%=photo.description%><br/>
 		<h3><%=photo.comments%><br/>
 	</section>
