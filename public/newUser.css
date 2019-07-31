@@ -12,7 +12,8 @@
 .header{
     font-family: 'Pacifico', cursive;
     font-weight: bolder;
-    font-size: 80px
+    font-size: 70px;
+    margin-left: 30px
 }
 
 .dropdown{
@@ -26,4 +27,20 @@
     margin-top: 50%;
     margin-bottom: 50%;
     color: black
+}
+
+
+/* Bootstrap Overrides */
+.container-fluid {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.container-fluid .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container-fluid #footer{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }

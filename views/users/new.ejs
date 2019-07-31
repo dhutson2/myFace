@@ -36,32 +36,40 @@
         <div class = 'col-5'>
         column here
         </div>
-        <div class = 'col auto'>
+        <div class = 'col-sm-auto'>
         <form action="/users" method="GET" class='form'>
-          Name: <input type="text" name="name" value="<%=user.name%>" /></br>
+          <input type="text" name="name" value="<%=user.name%>" /></br>
           </br>
-          Profile picture link: <input type="text" name="image"/></br>
+          <input type="text" placeholder='Profile picture link: 'name="image"/></br>
           </br>
-          Describe yourself! <input type="text" name="about"/></br>
+          <input type="text" placeholder='Describe yourself! ' name="about"/></br>
           </br>
+          <input type="text" placeholder='Enter email ' name="email"/></br>
+          </br>
+          <input type="text" placeholder='Your birthday ' name="birthday"/></br>
+          </br>
+          <input type="text" placeholder='Something else ' name="???"/></br>
+          </br>
+          
           <input type="submit" value="create user"/>
         </form>
         </div>
         <div class = 'col-5'>
-        
         </div>
       </div>
+        <div class = 'container' id='footer'>
+          <footer>
+            <div class="card">
+            <div class="card-header">
+              Made with &hearts; by:
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text">GA, DH, SK, BO</p>
+            </div>
+          </div>
+            </footer>
+        </div>
     </main>
   </body>
-  <footer>
-  <div class="card">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-  </div>
-</div>
-  </footer>
 </html>
