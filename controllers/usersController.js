@@ -20,8 +20,11 @@ router.get('/', async(req, res) => {
 })
 
 // route to get new page to create profile
-router.get('/new', (req, res) =>{
-    res.render('users/new.ejs')
+router.get('/new', async (req, res) =>{
+    const user = await User.findById(req.session.userId)
+    res.render('users/new.ejs', {
+        user: user
+    })
 })
 
 // route to create user
@@ -32,7 +35,7 @@ router.post('/', async (req, res) => {
     req.session.name = newUser.name
     req.session.logged = true
     console.log(newUser)
-    res.redirect('/users')
+    res.redirect('/users/new')
     } catch(err){
         res.send(err)
     }
