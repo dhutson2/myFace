@@ -26,12 +26,15 @@ router.get('/new', (req, res) =>{
 router.post('/', async (req, res) => {
     try{
     const user = await User.create(req.body);
+    req.session.userId = user._id
     console.log(user)
     res.redirect('/users')
     } catch(err){
         res.send(err)
     }
 })
+
+
 
 // route to show selected profile
 router.get('/:id', async(req, res) => {
@@ -83,5 +86,20 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+router.post('/login', async (req, res) => {
+   try {
+    const userFromDb = await User.findOne({name: req.body.name})
+    console.log(userFromDb);
+    if(userFromDb.password === req.body.password) {
+        req.session.userId = userFromDb._id;
+        req.session.logged = true;
+        res.redirect(`/users/${req.session.userId}`);
+    } else{
+        res.send("bad login")
+    }
+   } catch(err){
+    res.send(err)
+   }
+});
 
 module.exports= router;
