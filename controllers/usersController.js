@@ -4,13 +4,15 @@ const User    = require('../models/users');
 const Photo   = require('../models/photosModel');
 
 
-// profile index page that will show
-// individual users profile
+// index page that show list of users
 router.get('/', async(req, res) => {
+    console.log(req.session)
+    console.log(`A visit from ${req.session.userId}`)
     try{
     const users = await User.find({})
     res.render('users/index.ejs', {
-        users: users
+        users: users,
+        name: req.session.name
     })
     } catch(err){
         res.send(err)
@@ -22,12 +24,14 @@ router.get('/new', (req, res) =>{
     res.render('users/new.ejs')
 })
 
-// route to create profile and add it to user
+// route to create user
 router.post('/', async (req, res) => {
     try{
-    const user = await User.create(req.body);
-    req.session.userId = user._id
-    console.log(user)
+    const newUser = await User.create(req.body);
+    req.session.userId = newUser._id
+    req.session.name = newUser.name
+    req.session.logged = true
+    console.log(newUser)
     res.redirect('/users')
     } catch(err){
         res.send(err)
