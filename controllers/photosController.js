@@ -75,12 +75,19 @@ router.put('/:id', async (req, res) => {
 
 // Create route
 router.post('/', async (req, res) => {
+	if(!req.session.userId){
+		console.log('must login to post pictures')
+		res.redirect('/')
+	} else{
+		req.body.user = req.session.userId
 	try{
 		const newPhoto = await Photo.create(req.body);
+		console.log(newPhoto)
 		res.redirect('/photos');		
 	} catch(err){
 		res.send(err);
 	}
+}
 });
 
 module.exports = router;
