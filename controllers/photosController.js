@@ -84,14 +84,14 @@ router.post('/', async (req, res) => {
 		const validatedURL = await validURL(req.body.url);
 		console.log(req.body.url);
 		console.log(validatedURL);
-		if(validatedURL){
+		// if(validatedURL){
 			const newPhoto = await Photo.create(req.body);
 			res.redirect('/photos');
-		} else {
-			console.log("invalid url");
-			// res.send('<script>alert("Invalid Url, please enter again")</script')
-			location = location
-		}
+		// } else {
+		// 	console.log("invalid url");
+		// 	// res.send('<script>alert("Invalid Url, please enter again")</script')
+		// 	location = location
+		// }
 	} catch(err){
 		res.send(err);
 	}
