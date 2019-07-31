@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
 	try {
 		const photos = await Photo.find().populate('user');
 		const user = await User.findById(req.params.id);
+		console.log(photos)
 		res.render('photos/index.ejs', {
 			photos: photos,
 			user: user

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel='stylesheet' href='/newUser.css'>
   </head>
-  <body style='background-color: #E6E6DC'>
+  <body>
     <main class = 'container-fluid px-lg-5'>
       <div class = 'row w-100' id = 'toprow'>
         <div class = 'col'>
@@ -26,18 +26,18 @@
         </div>
         </div>
         <div class = 'col-6'>
-        <h1>Create a new user</h1>
+        <h1 class = 'header'>Create a new user</h1>
         </div>
         <div class = 'col'>
         myface logo
         </div>
       </div>
       <div class = 'row w-100' id='middlerow'>
-        <div class = 'col'>
+        <div class = 'col-5'>
         column here
         </div>
-        <div class = 'col col-6'>
-        <form action="/users" method="GET">
+        <div class = 'col auto'>
+        <form action="/users" method="GET" class='form'>
           Name: <input type="text" name="name" value="<%=user.name%>" /></br>
           </br>
           Profile picture link: <input type="text" name="image"/></br>
@@ -47,10 +47,21 @@
           <input type="submit" value="create user"/>
         </form>
         </div>
-        <div class = 'col auto'>
-        column here
+        <div class = 'col-5'>
+        
         </div>
       </div>
     </main>
   </body>
+  <footer>
+  <div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  </div>
+</div>
+  </footer>
 </html>

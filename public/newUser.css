@@ -1,8 +1,29 @@
 #toprow{
-    color: red;
-    margin: 10px
+    color: whitesmoke;
+    background-color: #365AE0;
+    width: 100vw;
 }
 
 #middlerow{
-    margin: 10px
+    color: whitesmoke;
+    background-color: #ebedf0
+}
+
+.header{
+    font-family: 'Pacifico', cursive;
+    font-weight: bolder;
+    font-size: 80px
+}
+
+.dropdown{
+    position: relative;
+    margin: 30px 5px;
+}
+
+.form{
+    border: solid 5px gray;
+    padding: 10px;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    color: black
 }
