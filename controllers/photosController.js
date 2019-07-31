@@ -17,12 +17,11 @@ router.get('/', async (req, res) => {
 	}
 });
 
-// New route
 router.get('/new', async (req, res) => {
-	const users = await User.find();
-	console.log(users, '<-users');
+	const user = await User.findById(req.session.userId);
+	console.log(user, '<-user');
 	res.render('photos/new.ejs', {
-		users: users
+		user: user
 	});
 });
 
@@ -76,11 +75,33 @@ router.put('/:id', async (req, res) => {
 // Create route
 router.post('/', async (req, res) => {
 	try{
-		const newPhoto = await Photo.create(req.body);
-		res.redirect('/photos');		
+		const validatedURL = await validURL(req.body.url);
+		console.log(req.body.url);
+		console.log(validatedURL);
+		if(validatedURL){
+			const newPhoto = await Photo.create(req.body);
+			res.redirect(`/users/${req.params.id}`);
+		} else {
+			console.log("invalid url");
+			// res.send('<script>alert("Invalid Url, please enter again")</script')
+			location = location
+		}
+		
 	} catch(err){
 		res.send(err);
 	}
 });
+
+function validURL(myURL) {
+            var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ //port
+            '(\\?[;&amp;a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i');
+            return pattern.test(myURL);
+         }
+
+
 
 module.exports = router;

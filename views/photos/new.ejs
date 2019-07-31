@@ -3,20 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="photos.css">
+	<link rel="stylesheet" type="text/css" href="/photos.css">
 </head>
 <body>
 	<%- include ../partials/_navbar.ejs %>
 	<h1>Add a new photo</h1>
 
 	<form action="/photos" method="POST">
-		<select name="user">
-			<% users.forEach(function(user) { %>
-				<option value="<%=user._id%>"><%=user.name%></option>
-			<%})%>
-
-		</select>
-
+			User: <input type="text" name="name" value="<%=user%>"><br/>
 			Title: <input type="text" name="title"><br/>
 			Image:	<input type="text" name="url"><br/>
 			Description: <input type="text" name="description"><br/>
