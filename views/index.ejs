@@ -13,17 +13,9 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            myface
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="/">Home page</a></li>
-            <li><a class="dropdown-item" href="/users">Users page</a></li>
-            <li><a class="dropdown-item" href="/photos">Photos page</a></li>
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
-          </ul>
-        </div>
+
+    <%- include partials/_navbar.ejs %>
+        
         <header>
             <h1 class="font-effect-3d">Welcome to MyFace</h1>
         </header>
@@ -33,6 +25,7 @@
     <input type='checkbox' id='form-switch'>
     <form id='login-form' action="/users/login" method='post'>
       <div class="form-group">
+
         <label for="exampleInputUsername">Username</label>
         <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
         <small id="emailHelp" class="form-text text-muted"></small>
