@@ -74,22 +74,27 @@ router.put('/:id', async (req, res) => {
 
 // Create route
 router.post('/', async (req, res) => {
+	if(!req.session.userId){
+		console.log('must login to post pictures')
+		res.redirect('/')
+	} else{
+		req.body.user = req.session.userId
 	try{
 		const validatedURL = await validURL(req.body.url);
 		console.log(req.body.url);
 		console.log(validatedURL);
 		if(validatedURL){
 			const newPhoto = await Photo.create(req.body);
-			res.redirect(`/users/${req.params.id}`);
+			res.redirect('/photos');
 		} else {
 			console.log("invalid url");
 			// res.send('<script>alert("Invalid Url, please enter again")</script')
 			location = location
 		}
-		
 	} catch(err){
 		res.send(err);
 	}
+}
 });
 
 function validURL(myURL) {

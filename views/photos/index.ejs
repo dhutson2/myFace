@@ -12,17 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-	<div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            myface
-        </button>
-          	<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            	<li><a class="dropdown-item" href="/">Home page</a></li>
-            	<li><a class="dropdown-item" href="/users">Users page</a></li>
-            	<li><a class="dropdown-item" href="/photos">Photos page</a></li>
-            	<li><a class="dropdown-item" href="/logout">Logout</a></li>
-          	</ul>
-    </div>
+	<%- include ../partials/_navbar.ejs %>
 	<h1>myface gallery</h1>
 	<main>
 

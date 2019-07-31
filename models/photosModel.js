@@ -8,7 +8,8 @@ const photoSchema = new Schema({
 	comments: String,
 	user: {
 		type: Schema.Types.ObjectId,
-		ref: 'User'
+		ref: 'User',
+		required: true
 	}
 });
 

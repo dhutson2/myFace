@@ -11,17 +11,7 @@
     <title><%=users.name%>'s profile</title>
 </head>
 <body>
-		<div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            myface
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="/">Home page</a></li>
-            <li><a class="dropdown-item" href="/users">Users page</a></li>
-            <li><a class="dropdown-item" href="/photos">Photos page</a></li>
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
-          </ul>
-        </div>
+		<%- include ../partials/_navbar.ejs %>
 	<div class="container">
     	<div id="name">
     		<h1 class='name'><%=users.name%></h1></br>
@@ -29,7 +19,7 @@
     		<div class="edit"><h6><a href="/users/<%=users._id%>/edit">Edit Profile</a></h6></div>
     	</div>
     <div class='image'>
-    	<img src = <%=users.image%> height='100%' width='100%'>
+    	<img src = "<%=users.image%>">
     </div>
     	<div class = 'about'>
     		<h4><%=users.about%></h4>
