@@ -28,6 +28,22 @@ router.get('/new', async (req, res) =>{
     })
 })
 
+// route to create user
+router.post('/', async (req, res) => {
+    try{
+    const salt = bcrypt.genSaltSync();
+    req.body.password = bcrypt.hashSync(req.body.password, salt);
+    const newUser = await User.create(req.body);
+    req.session.userId = newUser._id
+    req.session.name = newUser.name
+    req.session.logged = true
+    console.log(newUser)
+    res.redirect('/users/new')
+    } catch(err){
+        res.send(err)
+    }
+})
+
 router.post('/login', async (req, res) => {
     try {
      const userFromDb = await User.findOne({name: req.body.name})
@@ -56,23 +72,6 @@ router.get('/logout', (req, res) => {
             }
         }
         )}
-})
-
-// route to create user
-router.post('/', async (req, res) => {
-    try{
-    const salt = bcrypt.genSaltSync();
-    req.body.password = bcrypt.hashSync(req.body.password, salt);
-    const newUser = await User.create(req.body);
-    console.log(newUser);
-    req.session.userId = newUser._id
-    req.session.name = newUser.name
-    req.session.logged = true
-    console.log(newUser)
-    res.redirect('/users/new')
-    } catch(err){
-        res.send(err)
-    }
 })
 
 
