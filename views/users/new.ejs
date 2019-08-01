@@ -29,7 +29,7 @@
         <h1 class = 'header'>Create a new user</h1>
         </div>
         <div class = 'col'>
-        myface logo
+        <img src='https://fastdecals.com/shop/images/thumbnails/200/200/detailed/15/happy_happyface18.png?t=1526617196' id='logo'>
         </div>
       </div>
       <div class = 'row w-100' id='middlerow'>
@@ -37,7 +37,7 @@
         column here
         </div>
         <div class = 'col-sm-auto'>
-        <form action="/users" method="GET" class='form'>
+        <form action="/users" method="put" class='form'>
           <input type="text" name="name" value="<%=user.name%>" /></br>
           </br>
           <input type="text" placeholder='Profile picture link: 'name="image"/></br>
@@ -48,10 +48,9 @@
           </br>
           <input type="text" placeholder='Your birthday ' name="birthday"/></br>
           </br>
-          <input type="text" placeholder='Something else ' name="???"/></br>
+          <input type="button" value='Forgot password?' name="reset"/></br>
           </br>
-          
-          <input type="submit" value="create user"/>
+          <input type="submit" value="Create user"/>
         </form>
         </div>
         <div class = 'col-5'>
