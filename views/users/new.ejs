@@ -37,7 +37,7 @@
         column here
         </div>
         <div class = 'col-sm-auto'>
-        <form action="/users" method="put" class='form'>
+        <form action="/users/<%=user._id%>?_method=PUT" method="POST" class='form'>
           <input type="text" name="name" value="<%=user.name%>" /></br>
           </br>
           <input type="text" placeholder='Profile picture link: 'name="image"/></br>
