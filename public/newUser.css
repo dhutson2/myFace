@@ -13,7 +13,7 @@
     font-family: 'Pacifico', cursive;
     font-weight: bolder;
     font-size: 70px;
-    margin-left: 30px
+    margin-left: 55px
 }
 
 .dropdown{
@@ -27,6 +27,44 @@
     margin-top: 50%;
     margin-bottom: 50%;
     color: black
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #ebedf0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+#logo {
+    margin: 7px;
+    width: 125px;
+    height: 125px;
+    border-radius: 100px;
+    margin-top: 10px;
+    margin-left: 90px
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: 60px;
+    margin-top: 15px;
 }
 
 
