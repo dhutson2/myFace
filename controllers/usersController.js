@@ -75,7 +75,6 @@ router.get('/logout', (req, res) => {
 })
 
 
-
 // route to show selected profile
 router.get('/:id', async(req, res) => {
     try{
@@ -137,5 +136,21 @@ router.delete('/:id', async (req, res) => {
         )}
 })
 
+router.post('/login', async (req, res) => {
+    try {
+     const userFromDb = await User.findOne({name: req.body.name})
+     const validPassword = bcrypt.compareSync(req.body.password, userFromDb.password);
+     if(validPassword) {
+         req.session.userId = userFromDb._id;
+         req.session.logged = true;
+         console.log(req.session, '<-- from login')
+         res.redirect(`/users/${req.session.userId}`);
+     } else{
+         res.redirect('/')
+     }
+    } catch(err){
+     res.send(err)
+    }
+ });
 
 module.exports= router;
