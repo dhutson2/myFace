@@ -28,7 +28,38 @@ router.get('/new', async (req, res) =>{
     })
 })
 
+// route to create user
+router.post('/', async (req, res) => {
+    try{
+    const salt = bcrypt.genSaltSync();
+    req.body.password = bcrypt.hashSync(req.body.password, salt);
+    const newUser = await User.create(req.body);
+    req.session.userId = newUser._id
+    req.session.name = newUser.name
+    req.session.logged = true
+    console.log(newUser)
+    res.redirect('/users/new')
+    } catch(err){
+        res.send(err)
+    }
+})
 
+router.post('/login', async (req, res) => {
+    try {
+     const userFromDb = await User.findOne({name: req.body.name})
+     const validPassword = bcrypt.compareSync(req.body.password, userFromDb.password);
+     if(validPassword) {
+         req.session.userId = userFromDb._id;
+         req.session.logged = true;
+         console.log(req.session, '<-- from login')
+         res.redirect(`/users/${req.session.userId}`);
+     } else{
+         res.redirect('/')
+     }
+    } catch(err){
+     res.send(err)
+    }
+ });
 
 router.get('/logout', (req, res) => {
     if(req.session){
@@ -42,24 +73,6 @@ router.get('/logout', (req, res) => {
         }
         )}
 })
-
-// route to create user
-router.post('/', async (req, res) => {
-    try{
-    const newUser = await User.create(req.body);
-    console.log(newUser);
-    const salt = bcrypt.genSaltSync();
-    req.body.password = bcrypt.hashSync(req.body.password, salt);
-    req.session.userId = newUser._id
-    req.session.name = newUser.name
-    req.session.logged = true
-    console.log(newUser)
-    res.redirect('/users/new')
-    } catch(err){
-        res.send(err)
-    }
-})
-
 
 
 // route to show selected profile
