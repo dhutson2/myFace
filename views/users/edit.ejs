@@ -1,19 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <link rel="stylesheet" href="/css/app.css">
-    </head>
-    <body>
-        <h1>Update user info</h1>
-        <form action='/users/<%=user._id%>?_method=PUT%>' method='post'>
-            <!--  NOTE: the form is pre-populated with values for the server-->
-            Name: <input type="text" name="name" value="<%=user.name%>"/><br/>
-            Image: <input type="text" name="image" value="<%=user.image%>"> <img src='<%=user.image%>'>
-            <br/>
-            About: <input type="text" name="about" value="<%=user.about%>"/><br/>
-            <input type="submit" name="_method" value="submit changes"/>
+  <head>
+    <meta charset="utf-8">
+    <title>Register for myface</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/newUser.css'>
+  </head>
+  <body>
+    <main class = 'container-fluid px-lg-5'>
+      <div class = 'row w-100' id = 'toprow'>
+        <div class = 'col'>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            myface
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="/">Home page</a></li>
+            <li><a class="dropdown-item" href="/users">Users page</a></li>
+            <li><a class="dropdown-item" href="/photos">Photos page</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </div>
+        </div>
+        <div class = 'col-6'>
+        <h1 class = 'header'>Update info</h1>
+        </div>
+        <div class = 'col'>
+        <img src='https://fastdecals.com/shop/images/thumbnails/200/200/detailed/15/happy_happyface18.png?t=1526617196' id='logo'>
+        </div>
+      </div>
+      <div class = 'row w-100' id='middlerow'>
+        <div class = 'col-5'>
+        column here
+        </div>
+        <div class = 'col-sm-auto'>
+        <form action='/users/<%=user._id%>?_method=PUT%>' method='post' class='form'>          
+        <input type="text" name="name" value="<%=user.name%>" /></br>
+          </br>
+          <input type="text" placeholder='Profile picture link: 'name="image"/></br>
+          </br>
+          <input type="text" placeholder='Describe yourself! ' name="about"/></br>
+          </br>
+          <input type="text" placeholder='Enter email ' name="email"/></br>
+          </br>
+          <input type="text" placeholder='Your birthday ' name="birthday"/></br>
+          </br>
+          <input type="button" value='Forgot password?' name="reset"/></br>
+          </br>
+          <input type="submit" value="Submit changes"/>
         </form>
-    </body>
+        </div>
+        <div class = 'col-5'>
+        </div>
+      </div>
+        <div class = 'container' id='footer'>
+          <footer>
+            <div class="card">
+            <div class="card-header">
+              Made with &hearts; by:
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text">GA, DH, SK, BO</p>
+            </div>
+          </div>
+            </footer>
+        </div>
+    </main>
+  </body>
 </html>
