@@ -1,27 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <title>Register for myface</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/photos.css">
-</head>
-<body>
-	<%- include ../partials/_navbar.ejs %>
-	<h1>Add a new photo</h1>
-
-	<form action="/photos" method="POST">
+    <link rel='stylesheet' href='/newUser.css'>
+  </head>
+  <body>
+    <main class = 'container-fluid px-lg-5'>
+      <div class = 'row w-100' id = 'toprow'>
+        <div class = 'col'>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            myface
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="/">Home page</a></li>
+            <li><a class="dropdown-item" href="/users">Users page</a></li>
+            <li><a class="dropdown-item" href="/photos">Photos page</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </div>
+        </div>
+        <div class = 'col-6'>
+        <h1 class = 'header'>Post photo</h1>
+        </div>
+        <div class = 'col'>
+        <img src='https://fastdecals.com/shop/images/thumbnails/200/200/detailed/15/happy_happyface18.png?t=1526617196' id='logo'>
+        </div>
+      </div>
+      <div class = 'row w-100' id='middlerow'>
+        <div class = 'col-5'>
+        column here
+        </div>
+        <div class = 'col-sm-auto'>
+        <form action="/photos" method="POST" class='form'>
 			User: <input type="text" name="name" value="<%=user.name%>"><br/>
 			Title: <input type="text" name="title"><br/>
 			Image:	<input type="text" name="url"><br/>
 			Description: <input type="text" name="description"><br/>
 			<input type="submit" name="" value="Post Photo">
-		
-	</form>
-</body>
+        </div>
+        <div class = 'col-5'>
+        </div>
+      </div>
+        <div class = 'container' id='footer'>
+          <footer>
+            <div class="card">
+            <div class="card-header">
+              Made with &hearts; by:
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text">GA, DH, SK, BO</p>
+            </div>
+          </div>
+            </footer>
+        </div>
+    </main>
+  </body>
 </html>
