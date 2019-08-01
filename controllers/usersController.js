@@ -28,6 +28,19 @@ router.get('/new', async (req, res) =>{
     })
 })
 
+router.get('/logout', (req, res) => {
+    if(req.session){
+        req.session.destroy(function(err) {
+            if(err){
+                res.send(err)
+            } else {
+                console.log(req.session, '<-- after logout')
+                res.redirect('/')
+            }
+        }
+        )}
+})
+
 // route to create user
 router.post('/', async (req, res) => {
     try{
@@ -105,6 +118,7 @@ router.post('/login', async (req, res) => {
     if(validPassword) {
         req.session.userId = userFromDb._id;
         req.session.logged = true;
+        console.log(req.session, '<-- from login')
         res.redirect(`/users/${req.session.userId}`);
     } else{
         res.redirect('/')
@@ -113,8 +127,5 @@ router.post('/login', async (req, res) => {
     res.send(err)
    }
 });
-
-
-
 
 module.exports= router;
