@@ -7,24 +7,29 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
   </head>
   <body>
     <header>
     <%- include ../partials/_navbar.ejs %>
-      <h1>User list</h1>
+      <h1>MyFace Community</h1>
     </header>
     <main>
-      <h2>Welcome <%=name%></h2>
-      <h2>User list</h2>
+      <h2 class="shadow p-3 mb-5 bg-white rounded">Welcome <%=name%></h2>
       <ul>
           <% for(let i = 0; i < users.length; i++){ %>
               <li>
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-2">
                   <a href="/users/<%=users[i]._id%>"><%=users[i].name%></a>
-                  <a href="/users/<%=users[i]._id%>"><%=users[i].about%></a>
-                  <form method="POST" action="/users/<%=users[i]._id%>?_method=DELETE">
-                <input type="submit" name="_method" value="DELETE"/>
-            </form>
+                  </div>
+                  <div class="col-2">
+                  <a href="/users/<%=users[i]._id%>"><img class="resize" src = "<%=users[i].image%>"></a>
+                  </div>
+                
+                  </div>
+                  </div>
               </li>
           <% } %>
       </ul>
