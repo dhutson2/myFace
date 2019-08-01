@@ -81,12 +81,12 @@ router.post('/', async (req, res) => {
 	} else{
 		req.body.user = req.session.userId
 	try{
-		const validatedURL = await validURL(req.body.url);
-		console.log(req.body.url);
-		console.log(validatedURL);
+		// const validatedURL = await validURL(req.body.url);
+		// console.log(req.body.url);
+		// console.log(validatedURL);
 		// if(validatedURL){
 			const newPhoto = await Photo.create(req.body);
-			res.redirect('/photos');
+			res.redirect(`/users/${req.session.userId}`);
 		// } else {
 		// 	console.log("invalid url");
 		// 	// res.send('<script>alert("Invalid Url, please enter again")</script')
