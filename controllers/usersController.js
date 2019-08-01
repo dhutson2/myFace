@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const User    = require('../models/users');
 const Photo   = require('../models/photosModel');
+const bcrypt  = require('bcryptjs');
 
 
 // index page that show list of users
@@ -30,7 +31,10 @@ router.get('/new', async (req, res) =>{
 // route to create user
 router.post('/', async (req, res) => {
     try{
+    const salt = bcrypt.genSaltSync();
+    req.body.password = bcrypt.hashSync(req.body.password, salt);
     const newUser = await User.create(req.body);
+    console.log(newUser);
     req.session.userId = newUser._id
     req.session.name = newUser.name
     req.session.logged = true
@@ -97,17 +101,20 @@ router.delete('/:id', async (req, res) => {
 router.post('/login', async (req, res) => {
    try {
     const userFromDb = await User.findOne({name: req.body.name})
-    console.log(userFromDb);
-    if(userFromDb.password === req.body.password) {
+    const validPassword = bcrypt.compareSync(req.body.password, userFromDb.password);
+    if(validPassword) {
         req.session.userId = userFromDb._id;
         req.session.logged = true;
         res.redirect(`/users/${req.session.userId}`);
     } else{
-        res.send("bad login")
+        res.redirect('/')
     }
    } catch(err){
     res.send(err)
    }
 });
+
+
+
 
 module.exports= router;
