@@ -114,16 +114,22 @@ li {
 .dropdown:hover .dropdown-content {display: block;}
 
 #myCarousel {
-	width: 80%;
+	width: 60%;
 	margin: 0 auto;
 	margin-bottom: 10%;
 	border: 5px solid white;
 	background-color: white;
+	max-height: 400px;
 }
 
 .carousel-inner {
+	max-height: 390px;
 	width: 95%;
 	margin: 0 auto;
+}
+
+img {
+	max-height: 390px;
 }
 
 #myCarousel:hover {
