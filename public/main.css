@@ -33,6 +33,11 @@ a:hover {
 	color: red;
 }
 
+.user-list {
+	font-size: 30px;
+	color: white;
+}
+
 main {
 	position: relative;
 	top: 60px;

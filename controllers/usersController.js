@@ -28,6 +28,23 @@ router.get('/new', async (req, res) =>{
     })
 })
 
+router.post('/login', async (req, res) => {
+    try {
+     const userFromDb = await User.findOne({name: req.body.name})
+     const validPassword = bcrypt.compareSync(req.body.password, userFromDb.password);
+     if(validPassword) {
+         req.session.userId = userFromDb._id;
+         req.session.logged = true;
+         console.log(req.session, '<-- from login')
+         res.redirect(`/users/${req.session.userId}`);
+     } else{
+         res.redirect('/')
+     }
+    } catch(err){
+     res.send(err)
+    }
+ });
+
 router.get('/logout', (req, res) => {
     if(req.session){
         req.session.destroy(function(err) {
@@ -91,6 +108,7 @@ router.get('/:id/edit', async (req, res) => {
 //route to update edited profile
 router.put('/:id', async (req, res) => {
     const foundUser = await User.findByIdAndUpdate(req.params.id, req.body)
+           console.log(req.body);
     try{
         console.log(foundUser, '<-- put route')
         res.redirect('/users/' + req.params.id)
@@ -105,26 +123,20 @@ router.delete('/:id', async (req, res) => {
     try{
         const user = await User.findByIdAndRemove(req.params.id);
         await Photo.remove({user: req.params.id});
-        res.redirect('/users')
     } catch(err){
         res.send(err)
     }
+            if(req.session){
+        req.session.destroy(function(err) {
+            if(err){
+                res.send(err)
+            } else {
+                console.log(req.session, '<-- after logout')
+                res.redirect('/')
+            }
+        }
+        )}
 })
 
-router.post('/login', async (req, res) => {
-   try {
-    const userFromDb = await User.findOne({name: req.body.name})
-    const validPassword = bcrypt.compareSync(req.body.password, userFromDb.password);
-    if(validPassword) {
-        req.session.userId = userFromDb._id;
-        req.session.logged = true;
-        console.log(req.session, '<-- from login')
-        res.redirect(`/users/${req.session.userId}`);
-    } else{
-        res.redirect('/')
-    }
-   } catch(err){
-    res.send(err)
-   }
-});
+
 module.exports= router;
