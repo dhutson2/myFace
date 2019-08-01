@@ -82,3 +82,14 @@
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
+
+.delete {
+    font-size: 10px;
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: right;
+}
+
+
