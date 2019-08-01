@@ -91,6 +91,7 @@ router.get('/:id/edit', async (req, res) => {
 //route to update edited profile
 router.put('/:id', async (req, res) => {
     const foundUser = await User.findByIdAndUpdate(req.params.id, req.body)
+           console.log(req.body);
     try{
         console.log(foundUser, '<-- put route')
         res.redirect('/users/' + req.params.id)
