@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -11,51 +11,49 @@
     <link href="https://fonts.googleapis.com/css?family=Shojumaru&effect=3d" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Alegreya&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    </head>
+  </head>
     <body>
 
-    <%- include partials/_navbar.ejs %>
+      <%- include partials/_navbar.ejs %>
         
         <header>
-            <h1 class="font-effect-3d">Welcome to MyFace</h1>
+          <h1 class="font-effect-3d">Welcome to MyFace</h1>
         </header>
         <div class='space-div'>
-        
         </div>
-    <input type='checkbox' id='form-switch'>
-    <form id='login-form' action="/users/login" method='post'>
-      <div class="form-group">
-
-        <label for="exampleInputUsername">Username</label>
-        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
-        <small id="emailHelp" class="form-text text-muted"></small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
-      </div>
-      <div class="form-group form-check">
-        <label class="form-check-label" for="form-switch">Register</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+            <input type='checkbox' id='form-switch'>
+        <form id='login-form' action="/users/login" method='post'>
+          <div class="form-group">
+            <label for="exampleInputUsername">Username</label>
+            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+            <small id="emailHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+          </div>
+          <div class="form-group form-check">
+            <label class="form-check-label" for="form-switch">Register</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
     
-     <form id='register-form' action="/users" method='post'>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Username</label>
-        <input name ='name' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Create Username">
-        <small id="emailHelp" class="form-text text-muted"></small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" name='Password' class="form-control" id="exampleInputPassword1" placeholder="Create Password">
-      </div>
-      <div class="form-group form-check">
-        <label class="form-check-label" for="form-switch">Login</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-            </main>
+        <form id='register-form' action="/users" method='post'>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input name ='name' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Create Username">
+            <small id="emailHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name='password' class="form-control" id="exampleInputPassword1" placeholder="Create Password">
+          </div>
+          <div class="form-group form-check">
+            <label class="form-check-label" for="form-switch">Login</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+      </main>
             
     </body>
 </html>
