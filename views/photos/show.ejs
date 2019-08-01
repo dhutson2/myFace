@@ -26,19 +26,19 @@
         </div>
         </div>
         <div class = 'col-6'>
-        <h1 class = 'header'>Create a new user</h1>
+        <h1 class = 'header'><%=photo.title%></h1><br/>
         </div>
         <div class = 'col'>
         <img src='https://fastdecals.com/shop/images/thumbnails/200/200/detailed/15/happy_happyface18.png?t=1526617196' id='logo'>
         </div>
       </div>
       <div class = 'row w-100' id='middlerow'>
-        <div class = 'col-5'>
+        <div class = 'col-4'>
         column here
         </div>
         <div class = 'col-sm-auto' style='color: black'>
         <section>
-		<h1><%=photo.title%></h1><br/>
+		
 		<div class="photo">
 			<img src="<%=photo.url%>"><br/>
 		</div>
@@ -49,7 +49,9 @@
 		<form method="POST" action="/photos/<%=photo._id%>?_method=DELETE">
 			<input type="submit" name="" value="Delete Photo">
 		</form>
-		<a href="<%=photo._id%>/edit">Edit photo</a>
+        <form method="GET" action="/photos/<%=photo._id%>/edit">
+      <input type="submit" name="" value="Edit Photo">
+    </form>
 	</section>
         </div>
         <div class = 'col-5'>
