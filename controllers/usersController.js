@@ -123,10 +123,19 @@ router.delete('/:id', async (req, res) => {
     try{
         const user = await User.findByIdAndRemove(req.params.id);
         await Photo.remove({user: req.params.id});
-        res.redirect('/users')
     } catch(err){
         res.send(err)
     }
+            if(req.session){
+        req.session.destroy(function(err) {
+            if(err){
+                res.send(err)
+            } else {
+                console.log(req.session, '<-- after logout')
+                res.redirect('/')
+            }
+        }
+        )}
 })
 
 
