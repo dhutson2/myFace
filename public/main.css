@@ -132,6 +132,11 @@ img {
 	max-height: 390px;
 }
 
+img.resize {
+	max-height: 50%;
+	max-width: 50%;
+}
+
 #myCarousel:hover {
 	background-color: #9daef5;
 }
