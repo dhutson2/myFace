@@ -66,6 +66,7 @@ h6 {
     grid-column: 2/2;
     border: 5px solid white;
     background-color: black;
+    margin: 0 auto;
 }
 
 .about{
@@ -83,11 +84,13 @@ h6 {
 	grid-row: 2/3;
 	border: 5px solid white;
 	background-color: white;
+  max-height: 400px;
 }
 
 .carousel-inner {
-	width: 95%;
-	margin: 0 auto;
+  max-height: 390px;
+  max-width: 75%;
+  margin: 0 auto;
 }
 
 #myCarousel:hover {
@@ -150,9 +153,5 @@ button {
 .dropdown:hover .dropdown-content {display: block;}
 
 img {
-	min-width: 100%;
-	max-width: 100%;
-	min-height: 100%;
-	max-height: 100%;
-	object-fit: contain;
+	max-height: 390px;
 }
