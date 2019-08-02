@@ -13,13 +13,16 @@
 <body>
 		<%- include ../partials/_navbar.ejs %>
 	<div class="container">
-    	<div id="name">
+<!--     	<div id="name">
     		<h1 class='name'><%=users.name%></h1></br>
     		<div class="add"><h6><a href="/photos/new">Post New Photo</a></h6></div>
     		<div class="edit"><h6><a href="/users/<%=users._id%>/edit">Edit Profile</a></h6></div>
-    	</div>
+    	</div> -->
     <div class='image'>
     	<img class="profile" src="<%=users.image%>"  >
+      <div><h1><%=users.name%></h1>
+          <h6>| <a href="/photos/new">Post New Photo</a> | | <a href="/users/<%=users._id%>/edit">Edit Profile</a> |</h6><br/>
+      </div>
     </div>
     	<div class = 'about'>
     		<h4><%=users.about%></h4>
