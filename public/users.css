@@ -155,3 +155,7 @@ button {
 .post {
 	max-height: 390px;
 }
+
+.image {
+  max-height: 300px;
+}
