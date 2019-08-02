@@ -152,6 +152,6 @@ button {
 
 .dropdown:hover .dropdown-content {display: block;}
 
-img {
+.post {
 	max-height: 390px;
 }
